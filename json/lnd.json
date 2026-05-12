@@ -1,0 +1,52 @@
+{
+  "name": "LND",
+  "slug": "lnd",
+  "categories": [
+    23
+  ],
+  "date_created": "2026-05-09",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": null,
+  "documentation": "https://docs.lightning.engineering/lightning-network-tools/lnd/lnd",
+  "website": "https://lightning.engineering/",
+  "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/bitcoin.webp",
+  "description": "LND is a Lightning Network daemon for Bitcoin. This script installs LND in a Debian 13 LXC with optional RTL web UI and optional Tor support.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/lnd.sh",
+      "config_path": "/opt/lnd/lnd.conf",
+      "resources": {
+        "cpu": 2,
+        "ram": 2048,
+        "hdd": 8,
+        "os": "debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "Create /opt/lnd/lnd.conf after installation to match your Bitcoin node before using LND.",
+      "type": "info"
+    },
+    {
+      "text": "Wallet creation remains manual by design. Run `lncli create` after configuration is complete.",
+      "type": "info"
+    },
+    {
+      "text": "RTL is optional and becomes usable after the LND wallet and macaroon files exist.",
+      "type": "info"
+    },
+    {
+      "text": "If RTL is installed, configure it yourself or use the optional helper referenced in /opt/lnd/README.md; the RTL password is stored in /opt/rtl/RTL-Config.json as multiPass.",
+      "type": "info"
+    }
+  ]
+}
